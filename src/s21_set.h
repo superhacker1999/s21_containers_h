@@ -198,7 +198,7 @@ protected:
         bool result = true;
         if (!this->contains(other_node->key_)) {
             if (root_ != nullptr) {
-                std::pair<node_pointer, bool> pair_deside = insertDesider_(other_node->key_);  // 4 left
+                std::pair<node_pointer, bool> pair_deside = insertDesider_(other_node->key_);
                 iterator it(other_node);
                 other.deleteAnyTreeNode_(it);
                 if (pair_deside.second == right_side)

@@ -9,11 +9,6 @@
 #include "s21_compare.h"
 #include "s21_set.h"
 
-// методы GetMinFrom в сете работает неправильно для мультисета
-// to do: поиск ошибок связанных с этим
-// std::initializer_list<int> init2 = {2, 2, 34, 63, 23, 1, 1, 1, 9, 4, 9, 5};
-// при итерации по такому списку перегрузка ++ зацикливается на первой единице
-
 namespace s21 {
 template <class Key, class Compare = Compare<Key>>
 class Multiset : public Set<Key, Compare> {
@@ -29,9 +24,7 @@ public:
     using node_type = TreeNode<Key, cmp_type>;
     using node_pointer = typename Set<value_type, cmp_type>::node_pointer;
     using iterator = TreeIterator<value_type, cmp_type>;
-    // using const_iterator = MultisetConstIterator<value_type, cmp_type>;
     using size_type = size_t;
-    // using comp_ = typename set<value_type, cmp_type>::comp_;
 public:
     Multiset() : Set<key_type, cmp_type>() { ; }
     Multiset(std::initializer_list<key_type> const &items) : Set<key_type, cmp_type>() {
